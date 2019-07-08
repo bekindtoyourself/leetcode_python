@@ -8,20 +8,19 @@ class Solution:
         """
         s_list = list(s)
         d = {}
-        last_sub_str_len = 0
+        last_max_sub_str_len = 0
         cur_sub_str_len = 0
-        max_sub_str_len = 0
         for i, letter in enumerate(s_list):
             if letter in d:
                 cur_sub_str_len = i - d[letter]
-            # Every time the value of dict same key will be changed.
+            # Every time the value of same key in dict will be changed.
             d[letter] = i
-            max_sub_str_len = max(cur_sub_str_len, last_sub_str_len, max_sub_str_len)
-            last_sub_str_len = cur_sub_str_len
+            max_sub_str_len = max(cur_sub_str_len, last_max_sub_str_len)
+            last_max_sub_str_len = max_sub_str_len
         return max_sub_str_len
 
 def main():
-    s = "abcabcbb"
+    s = "pwwkew"
     result = Solution().lengthOfLongestSubstring(s)
     print(result)
 

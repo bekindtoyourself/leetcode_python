@@ -27,9 +27,6 @@ class Solution:
                 return[d[target-num], i]
             d[num] = i
 
-
-
-
 def main():
     nums = [2, 7, 11, 15]
     target = 9
