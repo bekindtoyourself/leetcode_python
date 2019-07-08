@@ -1,3 +1,5 @@
+# -*- coding: UTF-8 -*-
+
 class Solution:
     # my ugly code
     def twoSum(self, nums, target):
