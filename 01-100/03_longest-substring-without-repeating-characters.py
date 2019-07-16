@@ -6,21 +6,19 @@ class Solution:
         :type s: str
         :rtype : int
         """
-        s_list = list(s)
         d = {}
-        last_max_sub_str_len = 0
-        cur_sub_str_len = 0
-        for i, letter in enumerate(s_list):
+        max_sub_str_len = 0
+        start = 0
+        for i, letter in enumerate(s):
             if letter in d:
-                cur_sub_str_len = i - d[letter]
-            # Every time the value of same key in dict will be changed.
+                start = max(start, d[letter] + 1)
             d[letter] = i
-            max_sub_str_len = max(cur_sub_str_len, last_max_sub_str_len)
-            last_max_sub_str_len = max_sub_str_len
+            max_sub_str_len = max(max_sub_str_len, i - start + 1)
         return max_sub_str_len
 
 def main():
-    s = "pwwkew"
+    # s = "asfbac"
+    s = "abba"
     result = Solution().lengthOfLongestSubstring(s)
     print(result)
 
